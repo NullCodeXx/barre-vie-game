@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Barre Attack</title>
+    <style>
+        body {}
+        
+        header {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+        
+        header section {
+            width: 400px;
+        }
+        
+        h4 {
+            color: #ffffff;
+        }
+        
+        #perso1 {
+            width: 400px;
+            height: 20px;
+            background-color: lime;
+        }
+        
+        #perso2 {
+            width: 400px;
+            height: 20px;
+            background-color: lime;
+        }
+        
+        footer {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        button {
+            width: 5%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <section>
+            <div id="perso1">
+                <h4>perso1</h4>
+            </div>
+        </section>
+
+        <section>
+            <div id="perso2">
+                <h4>perso1</h4>
+            </div>
+        </section>
+    </header>
+
+    <footer>
+        <input type="button" id="button" value="Attack">
+        <input type="button" id="button2" value="Attack2">
+    </footer>
+    <script>
+        //Object
+        let perso = {
+            name: "Frite",
+            vie: 100,
+            attack: 10
+        }
+        let perso2 = {
+            name: "Frite",
+            vie: 100,
+            attack: 10
+        }
+
+        //function attaque.
+        let attaque = function(target, attacker) {
+            target.vie -= attacker.attack;
+        }
+
+        //Barre de vie.
+        let div = document.querySelector('#perso1');
+        let div2 = document.querySelector('#perso2');
+
+
+        //event
+        document.querySelector("#button").addEventListener("click", function() {
+            attaque(perso, perso2);
+            div.style.width = (perso.vie * 4) + "px";
+        })
+
+        //event
+        document.querySelector("#button2").addEventListener("click", function() {
+            attaque(perso2, perso);
+            div2.style.width = (perso2.vie * 4) + "px";
+        })
+    </script>
+
+</body>
+
+</html>
